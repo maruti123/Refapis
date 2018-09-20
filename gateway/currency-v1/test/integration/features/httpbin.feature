@@ -28,15 +28,6 @@ Feature:
     And response body path $.headers.User-Agent should be apickli
     And response body path $.headers.Custom-Header should be abcd
 
-  Scenario: Same header field with multiple values
-    Given I set Custom-Header header to A
-    And I set Custom-Header header to B
-    And I set headers to
-      | name          | value |
-      | Custom-Header | C     |
-      | Custom-Header | D     |
-    When I GET /get
-    Then response body path $.headers.Custom-Header should be A,B,C,D
 
   Scenario: Setting cookie in GET request
     Given I set cookie to test=value; HttpOnly
@@ -119,10 +110,6 @@ Feature:
     When I GET /get
     Then response body path $.headers.Authorization should be Bearer token123
 
-  Scenario: setting header value as variable
-    When I GET /get
-    Then I store the value of response header Server as agent in scenario scope
-    And value of scenario variable agent should be meinheld/0.6.1
 
   Scenario: setting body path as variable (xml)
     When I GET /xml
