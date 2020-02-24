@@ -164,7 +164,7 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
-							<executable>./node_modules/apigeelint/main.js</executable>
+							<executable>./node_modules/apigeelint/cli.js</executable>
 							<commandlineArgs>
 								-s apiproxy/ -f table.js
 							</commandlineArgs>
